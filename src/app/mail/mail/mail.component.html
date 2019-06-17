@@ -1,0 +1,112 @@
+<mat-toolbar class="mat-elevation-z1 stbui-background-white">
+  <mat-toolbar-row>
+    <app-brand class="stbui-background-blue" 
+      style="margin-left:-16px;" 
+      brand="Mail">
+    </app-brand>
+
+    <div fxFlex="auto">
+      <app-search placeholder="Search for.."></app-search>
+    </div>
+    <span fxFlex></span>
+    <button mat-icon-button>
+      <mat-icon>apps</mat-icon>
+    </button>
+    <!-- <stbui-toolbar-notification></stbui-toolbar-notification>
+    <stbui-toolbar-user></stbui-toolbar-user> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div fxLayout="row" fxLayoutAlign="start start">
+  <div class="sidenav" fxFlex="250px">
+    <div class="compose-container">
+      <div class="compose" matRipple (click)="openComposeDialog()">
+        Write a Email
+      </div>
+    </div>
+
+    <div class="nav-list">
+      <mat-nav-list>
+        <mat-list-item class="active">
+          <mat-icon matListIcon>mail</mat-icon>
+          <span matLine>Inbox</span>
+          <span>4</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>start</mat-icon>
+          <span matLine>Starred</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon matListIcon>query_builder</mat-icon>
+          <span matLine>Delayed</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>label_important</mat-icon>
+          <span matLine>Important</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>send</mat-icon>
+          <span matLine>Send Email</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon matListIcon>insert_drive_file</mat-icon>
+          <span matLine>Draft</span>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <mat-list-item>
+          <mat-icon matListIcon>mail</mat-icon>
+          <span matLine>All Email</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon matListIcon>error</mat-icon>
+          <span matLine>Spam</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>delete</mat-icon>
+          <span matLine>Deleted Message</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>start</mat-icon>
+          <span matLine>Receipts</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>label</mat-icon>
+          <span matLine>Work</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>label</mat-icon>
+          <span matLine>Management label</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>settings</mat-icon>
+          <span matLine>Create a new label</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </div>
+
+  <div class="mail-list" fxFlex>
+    <app-toolbar 
+      [mail]="shownMailDetail" 
+      [itemCount]="lines" 
+      (onForward)="onForward($event)">
+    </app-toolbar>
+
+    <app-list
+      *ngIf="!shownMailDetail"
+      [mails]="shownMails | async"
+      (onOpenMailDetial)="openMailDetial($event)">
+    </app-list>
+
+    <app-detail
+      *ngIf="shownMailDetail"
+      [mail]="shownMailDetail" >
+    </app-detail>
+
+  </div>
+</div>

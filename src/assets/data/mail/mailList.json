@@ -1,0 +1,80 @@
+[
+    {
+      "from": {
+        "name": "Medium Daily Digest",
+        "mail": "Medium Daily Digest"
+      },
+      "subject": "Best practices for a clean and performant Angular application",
+      "content": "Best practices for a clean and performant Angular application",
+      "when": "January 27, 2019",
+      "read": true,
+      "starred": true,
+      "labels": [
+        {
+          "name": "Private",
+          "color": "darkgrey"
+        }
+      ],
+      "group": "promotions",
+      "type": "sent",
+      "attachments": ["assets/img/backgrounds/1.jpg"]
+    },
+    {
+      "from": {
+        "name": "Medium Daily Digest",
+        "mail": "Medium Daily Digest"
+      },
+      "subject": "The most important skill a programmer can learn",
+      "content": "The most important skill a programmer can learn",
+      "when": "January 27, 2019",
+      "read": true,
+      "starred": false,
+      "labels": [
+        {
+          "name": "Private",
+          "color": "darkgrey"
+        }
+      ],
+      "group": "promotions",
+      "type": "sent"
+    },
+    {
+      "from": {
+        "name": "Medium Daily Digest",
+        "mail": "Medium Daily Digest"
+      },
+      "subject": "how to set up a serious Kubernetes terminal",
+      "content": "how to set up a serious Kubernetes terminal",
+      "when": "January 27, 2019",
+      "read": true,
+      "starred": true,
+      "labels": [
+        {
+          "name": "Private",
+          "color": "darkgrey"
+        }
+      ],
+      "group": "promotions",
+      "type": "sent"
+    },
+    {
+      "from": {
+        "name": "Medium Daily Digest",
+        "mail": "Medium Daily Digest"
+      },
+      "subject": "The best programming language 2019",
+      "content": "The best programming language 2019",
+      "when": "January 27, 2019",
+      "read": true,
+      "starred": false,
+      "labels": [
+        {
+          "name": "Private",
+          "color": "darkgrey"
+        }
+      ],
+      "group": "promotions",
+      "type": "sent"
+    }
+  ]
+  
