@@ -15,11 +15,13 @@ export class MailComponent implements OnInit {
 
   lines: number;
 
-  constructor(public composeDialog: MatDialog, private snackBar: MatSnackBar,
+  constructor(
+    public composeDialog: MatDialog,
+    private snackBar: MatSnackBar,
     @Inject('mailService') private service) {
-      
-      this.lines = this.shownMails.length;
-    }
+
+    this.lines = this.shownMails.length;
+  }
 
   ngOnInit() {
     this.getMails();

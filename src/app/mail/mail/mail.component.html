@@ -1,8 +1,6 @@
 <mat-toolbar class="mat-elevation-z1 stbui-background-white">
   <mat-toolbar-row>
-    <app-brand class="stbui-background-blue" 
-      style="margin-left:-16px;" 
-      brand="Mail">
+    <app-brand class="stbui-background-blue" style="margin-left:-16px;" brand="Mail">
     </app-brand>
 
     <div fxFlex="auto">
@@ -91,21 +89,13 @@
   </div>
 
   <div class="mail-list" fxFlex>
-    <app-toolbar 
-      [mail]="shownMailDetail" 
-      [itemCount]="lines" 
-      (onForward)="onForward($event)">
+    <app-toolbar [mail]="shownMailDetail" [itemCount]="lines" (onForward)="onForward($event)">
     </app-toolbar>
 
-    <app-list
-      *ngIf="!shownMailDetail"
-      [mails]="shownMails | async"
-      (onOpenMailDetial)="openMailDetial($event)">
+    <app-list *ngIf="!shownMailDetail" [mails]="shownMails | async" (onOpenMailDetial)="openMailDetial($event)">
     </app-list>
 
-    <app-detail
-      *ngIf="shownMailDetail"
-      [mail]="shownMailDetail" >
+    <app-detail *ngIf="shownMailDetail" [mail]="shownMailDetail">
     </app-detail>
 
   </div>
