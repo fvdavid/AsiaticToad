@@ -18,11 +18,11 @@ import { ToolbarNotificationComponent } from './toolbar-notification/toolbar-not
 
 @NgModule({
   declarations: [
-    MailComponent, 
-    ComposeComponent, 
-    ListComponent, 
-    DetailComponent, 
-    ToolbarComponent, 
+    MailComponent,
+    ComposeComponent,
+    ListComponent,
+    DetailComponent,
+    ToolbarComponent,
     SearchComponent, ToolbarNotificationComponent
   ],
   imports: [

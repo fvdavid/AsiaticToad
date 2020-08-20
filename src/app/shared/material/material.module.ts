@@ -30,8 +30,11 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatFormFieldModule,
+  MatChipsModule
 } from '@angular/material';
+
 
 @NgModule({
   exports: [
@@ -65,7 +68,9 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }
