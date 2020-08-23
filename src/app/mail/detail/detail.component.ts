@@ -9,8 +9,10 @@ export class DetailComponent implements OnInit {
 
   @Input() mail;
   showMailDetail;
-  
-  constructor() { }
+
+  constructor() {
+    console.log('detail-mail ' + this.mail);
+  }
 
   ngOnInit() {
   }

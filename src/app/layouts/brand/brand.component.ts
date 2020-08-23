@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BrandComponent implements OnInit {
 
-  @Input() brand: string = 'fvToad';
-  @Input() link: any = ['/']
+  @Input() brand = 'fvToad';
+  @Input() link: any = ['/mail'];
   constructor() { }
 
   ngOnInit() {

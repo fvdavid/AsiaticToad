@@ -1,6 +1,6 @@
 <div class="inbox-compose">
   <div mat-dialog-content fxLayout="row" fxLayoutAlign="space-between center">
-    <span>write a letter</span>
+    <span>Write a Document</span>
     <button mat-dialog-close mat-icon-button>
       <mat-icon>close</mat-icon>
     </button>
@@ -9,32 +9,35 @@
   <form #mailForm="ngForm">
     <div fxLayout="column" mat-dialog-content>
       <mat-form-field class="display-block">
-        <input matInput placeholder="recipient" name="name" [(ngModel)]="name" required />
-      </mat-form-field>
-      <mat-form-field class="display-block">
-        <input matInput placeholder="sender" disabled name="address" [(ngModel)]="address" required />
-      </mat-form-field>
-      <mat-form-field class="display-block">
         <input matInput placeholder="subject" name="subject" [(ngModel)]="subject" required />
       </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Divisi</mat-label>
+        <mat-select [(ngModel)]="group" name="group">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <p class="editor">
         <quill-editor name="content" [(ngModel)]="content"></quill-editor>
       </p>
     </div>
 
+    <!-- <div fxFlex ></div> -->
     <div mat-dialog-actions fxLayout="row">
       <button mat-dialog-close mat-icon-button>
         <mat-icon>delete</mat-icon>
       </button>
       <span fxFlex></span>
-      <button mat-icon-button>
+      <!-- <button mat-icon-button>
         <mat-icon>attachment</mat-icon>
-      </button>
-      <button class="send" mat-raised-button color="primary" 
-        [disabled]="!mailForm.valid" 
-        (click)="send()">
-          send 
-          <mat-icon>send</mat-icon>
+      </button> -->
+      <button class="send" mat-raised-button color="primary" [disabled]="!mailForm.valid" (click)="saveNewDocument()">
+        save
+        <mat-icon>save</mat-icon>
       </button>
     </div>
   </form>

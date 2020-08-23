@@ -9,7 +9,8 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ListComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'star', 'name', 'subject', 'when'];
+  // displayedColumns: string[] = ['select', 'star', 'name', 'subject', 'when'];
+  displayedColumns: string[] = ['subject', 'when'];
   dataSource: any = new MatTableDataSource([]);
   selection = new SelectionModel(true, []);
 
@@ -24,24 +25,23 @@ export class ListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  isAllSelected() {
-    const numberSelected = this.selection.selected.length;
-    console.log("numberSelected: " + numberSelected);
+  // isAllSelected() {
+  //   const numberSelected = this.selection.selected.length;
+  //   console.log('numberSelected: ' + numberSelected);
 
-    const numRows = this.dataSource.data.length;
-    return numberSelected === numRows;
-  }
+  //   const numRows = this.dataSource.data.length;
+  //   return numberSelected === numRows;
+  // }
 
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear : this.dataSource.data.forEach(row => this.selection.select(row));
-  }
+  // masterToggle() {
+  //   this.isAllSelected() ?
+  //     this.selection.clear : this.dataSource.data.forEach(row => this.selection.select(row));
+  // }
 
   rowSelection(row) {
-    console.log(row);
+    console.log('rowSelection-row.subject >> ' + row.subject);
     this.onOpenMailDetial.emit(row);
   }
 }

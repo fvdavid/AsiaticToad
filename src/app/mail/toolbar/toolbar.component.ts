@@ -8,11 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   @Input() mail;
-  @Input() itemCount: number = 0;
+  @Input() itemCount: number;
   @Output() onForward = new EventEmitter();
 
   constructor() {
-    console.log("itemCount: " + this.itemCount);
+    console.log('itemCount: ' + this.itemCount);
   }
 
   ngOnInit() {

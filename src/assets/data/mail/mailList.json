@@ -1,8 +1,8 @@
 [
     {
       "from": {
-        "name": "Medium Daily Digest",
-        "mail": "Medium Daily Digest"
+        "name": "Medium Daily Test 01",
+        "mail": "Medium Daily Test 01"
       },
       "subject": "Best practices for a clean and performant Angular application",
       "content": "Best practices for a clean and performant Angular application",
@@ -21,8 +21,8 @@
     },
     {
       "from": {
-        "name": "Medium Daily Digest",
-        "mail": "Medium Daily Digest"
+        "name": "Medium Daily Test 02",
+        "mail": "Medium Daily Test 02"
       },
       "subject": "The most important skill a programmer can learn",
       "content": "The most important skill a programmer can learn",
@@ -36,12 +36,13 @@
         }
       ],
       "group": "promotions",
-      "type": "sent"
+      "type": "sent",
+      "attachments": ["assets/img/backgrounds/1.jpg"]
     },
     {
       "from": {
-        "name": "Medium Daily Digest",
-        "mail": "Medium Daily Digest"
+        "name": "Medium Daily Test 03",
+        "mail": "Medium Daily Test 03"
       },
       "subject": "how to set up a serious Kubernetes terminal",
       "content": "how to set up a serious Kubernetes terminal",
@@ -55,12 +56,13 @@
         }
       ],
       "group": "promotions",
-      "type": "sent"
+      "type": "sent",
+      "attachments": ["assets/img/backgrounds/1.jpg"]
     },
     {
       "from": {
-        "name": "Medium Daily Digest",
-        "mail": "Medium Daily Digest"
+        "name": "Medium Daily Test 04",
+        "mail": "Medium Daily Test 04"
       },
       "subject": "The best programming language 2019",
       "content": "The best programming language 2019",
@@ -74,7 +76,8 @@
         }
       ],
       "group": "promotions",
-      "type": "sent"
+      "type": "sent",
+      "attachments": ["assets/img/backgrounds/1.jpg"]
     }
   ]
   

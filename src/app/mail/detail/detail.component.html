@@ -2,23 +2,23 @@
   <div class="mail-subject">{{ mail.subject }}</div>
 
   <div class="mail-header" fxLayout="row">
-    <img class="avatar" src="assets/images/avatars/noavatar.png" />
+    <!-- <img class="avatar" src="assets/images/avatars/noavatar.png" /> -->
     <div class="mail-info" fxLayout="column">
-      <span class="from">{{ mail.from.name }}</span>
-      <span class="to">
+      <!-- <span class="from">{{ mail.from.name }}</span> -->
+      <!-- <span class="to">
         Send To Me
         <mat-icon>arrow_drop_down</mat-icon>
-      </span>
+      </span> -->
     </div>
     <span fxFlex></span>
-    <div class="mail-extra">
+    <!-- <div class="mail-extra">
       <span class="when">{{ mail.when }}</span>
       <button mat-icon-button><mat-icon>start</mat-icon></button>
       <button mat-icon-button><mat-icon>reply</mat-icon></button>
       <button mat-icon-button [matMenuTriggerFor]="mailOptions">
         <mat-icon>more_vert</mat-icon>
       </button>
-    </div>
+    </div> -->
   </div>
 
   <div class="mail-content">
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="respond" fxLayout="row" fxLayoutAlign="start center">
+  <!-- <div class="respond" fxLayout="row" fxLayoutAlign="start center">
     <button mat-raised-button class="respond-button">
       <mat-icon>reply</mat-icon> Reply
     </button>
@@ -60,10 +60,11 @@
         Send <mat-icon>send</mat-icon>
       </button>
     </div>
-  </div>
+  </div> -->
+
 </div>
 
-<mat-menu #mailOptions="matMenu">
+<!-- <mat-menu #mailOptions="matMenu">
   <button mat-menu-item><mat-icon>reply</mat-icon>Reply</button>
   <button mat-menu-item><mat-icon>forward</mat-icon>Forward</button>
   <button mat-menu-item><mat-icon>filter_list</mat-icon>Filter such messages</button>
@@ -73,4 +74,4 @@
     <mat-icon>markunread_mailbox</mat-icon>
     Mark as unread
   </button>
-</mat-menu>
+</mat-menu> -->

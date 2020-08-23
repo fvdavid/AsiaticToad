@@ -15,6 +15,8 @@ import { LayoutModule } from '../layouts';
 import { BrandModule } from '../layouts/brand/brand.module';
 import { SearchComponent } from './search/search.component';
 import { ToolbarNotificationComponent } from './toolbar-notification/toolbar-notification.component';
+import { DocumentsService } from './service/documents.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ToolbarNotificationComponent } from './toolbar-notification/toolbar-not
     ListComponent,
     DetailComponent,
     ToolbarComponent,
-    SearchComponent, ToolbarNotificationComponent
+    SearchComponent,
+    ToolbarNotificationComponent
   ],
   imports: [
     HttpClientModule,
@@ -31,13 +34,15 @@ import { ToolbarNotificationComponent } from './toolbar-notification/toolbar-not
     SharedModule,
     LayoutModule,
     BrandModule,
-    QuillModule
+    QuillModule,
   ],
   providers: [
+    DocumentsService,
     {
       provide: 'mailService',
       useClass: MailService
     }
+    // MailService
   ],
   entryComponents: [
     ComposeComponent
