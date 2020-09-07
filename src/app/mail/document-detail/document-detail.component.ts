@@ -55,7 +55,7 @@ export class DocumentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  openChangeStatus() {
+  openChangeStatus(key: any) {
     const dialogRefStatus = this.composeDialog.open(DocumentStatusComponent, {
       maxWidth: '50vw',
       maxHeight: '50vh',
@@ -64,6 +64,13 @@ export class DocumentDetailComponent implements OnInit {
     });
 
     dialogRefStatus.afterClosed().subscribe(result => {
+
+      console.log('result------->> ' + result);
+
+      console.log('key--->  ' + key);
+
+      console.log('key-------?>>>>>>> ' + JSON.stringify(key));
+
       this.snackBar.open('Change Status has been closed', '', { duration: 4000 });
     });
   }

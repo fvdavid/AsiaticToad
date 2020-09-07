@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'mail',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
 ];

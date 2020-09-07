@@ -4,6 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import { map } from 'rxjs/operators';
+
 @Injectable()
 export class MailService {
 
@@ -28,8 +30,14 @@ export class MailService {
     // });
 
     this.firestore.collection('documentManagement').valueChanges().subscribe(res => {
-      // console.log('res >> ' + JSON.stringify(res));
       this._mails.next(res);
     });
+
+
+    // this.firestore.collection('documentManagement').snapshotChanges().map(action => {
+    //   const $key = action.payload.key;
+    //   const data = { $key, ...action.payload.val() };
+    //   return data;
+    // })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-document-status',
@@ -16,7 +17,9 @@ export class DocumentStatusComponent implements OnInit {
 
   pictureForm: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder) { }
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<DocumentStatusComponent>) { }
 
   ngOnInit() {
     this.pictureForm = this.formBuilder.group({
@@ -25,9 +28,7 @@ export class DocumentStatusComponent implements OnInit {
   }
 
   submitChangeStatus() {
-    // console.log('pictureForm >> ' + JSON.stringify(this.pictureForm.value)); // all data
-
-    console.log('status ----> ' + this.pictureForm.value.status);
+    this.dialogRef.close(this.pictureForm.value.status);
   }
 
 }
