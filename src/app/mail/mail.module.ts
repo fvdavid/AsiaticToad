@@ -21,6 +21,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DocumentListComponent } from './document-list/document-list.component';
 import { DocumentDetailComponent } from './document-detail/document-detail.component';
+import { DocumentStatusComponent } from './document-status/document-status.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DocumentDetailComponent } from './document-detail/document-detail.compo
     SearchComponent,
     ToolbarNotificationComponent,
     DocumentListComponent,
-    DocumentDetailComponent
+    DocumentDetailComponent,
+    DocumentStatusComponent
   ],
   imports: [
     HttpClientModule,
@@ -53,7 +55,8 @@ import { DocumentDetailComponent } from './document-detail/document-detail.compo
     // MailService
   ],
   entryComponents: [
-    ComposeComponent
+    ComposeComponent,
+    DocumentStatusComponent
   ]
 })
 export class MailModule { }

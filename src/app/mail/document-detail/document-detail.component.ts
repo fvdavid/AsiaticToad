@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { DocumentStatusComponent } from '../document-status/document-status.component';
 
 export interface Section {
   name: string;
@@ -43,13 +45,27 @@ export class DocumentDetailComponent implements OnInit {
   colorOne: string;
   colorTwo: string;
 
-  constructor() {
-    console.log('detail-mail ' + this.mail);
-
+  constructor(
+    public composeDialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {
     this.colorOne = '#FFFFFF';
   }
 
   ngOnInit() {
+  }
+
+  openChangeStatus() {
+    const dialogRefStatus = this.composeDialog.open(DocumentStatusComponent, {
+      maxWidth: '50vw',
+      maxHeight: '50vh',
+      height: '50%',
+      width: '50%'
+    });
+
+    dialogRefStatus.afterClosed().subscribe(result => {
+      this.snackBar.open('Change Status has been closed', '', { duration: 4000 });
+    });
   }
 
 }

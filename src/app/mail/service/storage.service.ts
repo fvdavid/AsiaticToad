@@ -1,4 +1,4 @@
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -9,7 +9,7 @@ import { FileUpload, FileUplodSaved } from '../model/fileupload.model';
 
 export interface FilesUploadMetadata {
   uploadProgress$: Observable<number>;
-  downloadUrl$: string;
+  downloadUrl$: Observable<string>;
 }
 
 
@@ -51,11 +51,13 @@ export class StorageService {
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
+    console.log('pictureForm >> ' + pictureForm.status);
+
     this.fileSaved = {
       description: pictureForm.description,
       subject: pictureForm.subject,
       divisi: pictureForm.divisi,
-      // status: pictureForm.status,
+      status: pictureForm.status,
       when: new Date(),
       starred: false,
       read: false,
@@ -76,7 +78,8 @@ export class StorageService {
 
     return {
       uploadProgress$: uploadTask.percentageChanges(),
-      downloadUrl$: fileUpload.url,
+      // downloadUrl$: fileUpload.url,
+      downloadUrl$: this.getDownloadUrl$(uploadTask, filePath),
     };
   }
 
@@ -87,6 +90,7 @@ export class StorageService {
       description: fileDocument.description,
       subject: fileDocument.subject,
       divisi: fileDocument.divisi,
+      status: fileDocument.status,
       when: Date.now(),
       starred: false,
       read: false,
@@ -100,6 +104,10 @@ export class StorageService {
       .catch(e => {
         console.log('log ::saveToFirestore:: ==> ' + e.message);
       });
+  }
+
+  private getDownloadUrl$(uploadTask: AngularFireUploadTask, path: string): Observable<string> {
+    return from(uploadTask).pipe(switchMap((_) => this.storage.ref(path).getDownloadURL()));
   }
 
   // private saveFileData(fileUpload: FileUpload, fileDocument: FileUplodSaved) {

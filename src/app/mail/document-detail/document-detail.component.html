@@ -1,5 +1,5 @@
 <div class="mail-detail" *ngIf="mail">
-  <div class="mail-subject">{{ mail.nameFile }}</div>
+  <div class="mail-subject">{{ mail.subject }}</div>
 
   <div class="mail-header" fxLayout="row">
     <!-- files -->
@@ -21,37 +21,51 @@
   <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="colorOne">
     <mat-list>
       <mat-list-item class="text-inside-grid">
-        <div mat-line>Status: {{ mail.status }}</div>
-        <div mat-line>1.19 MiB, application/pdf</div>
-        <div mat-line>uploaded by: {{ mail.owner }}</div>
-        <div mat-line>uploaded date: {{ mail.created }} </div>
         <div mat-line>
-          Komen: <span style="color: blueviolet;"> {{ mail.coment }} </span>
+          Status: {{ mail.status }}
+        </div>
+        <div mat-line>
+          Nama File: {{ mail.name }}
+          <!-- 1.19 MiB, application/pdf -->
+        </div>
+        <div mat-line>
+          Oleh: ADMIN
+          <!--  {{ mail.owner }} -->
+        </div>
+        <div mat-line>
+          Tanggal Upload: {{ mail.when | date:'dd, MMMM, yyyy' }}
+        </div>
+        <div mat-line>
+          Deskripsi:
+          <span style="color: blueviolet;">
+            {{ mail.description }}
+          </span>
         </div>
       </mat-list-item>
     </mat-list>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="colorOne">
+  <mat-grid-tile [colspan]="1" [rowspan]="3" [style.background]="colorOne">
     <mat-list-item class="button-inside-grid">
       <div mat-line>
+        <a mat-stroked-button target="_blank" [href]="mail.url">
+          Lihat Online / Unduh
+        </a>
+      </div>
+
+      <!-- <div mat-line>
         <button mat-stroked-button>
-          Download
+          Lihat Online
+        </button>
+      </div> -->
+      <div mat-line>
+        <button mat-stroked-button (click)="openChangeStatus()">
+          Ganti status
         </button>
       </div>
       <div mat-line>
         <button mat-stroked-button>
-          View online
-        </button>
-      </div>
-      <div mat-line>
-        <button mat-stroked-button>
-          Change status
-        </button>
-      </div>
-      <div mat-line>
-        <button mat-stroked-button>
-          Edit koment
+          Edit Deskripsi
         </button>
       </div>
     </mat-list-item>

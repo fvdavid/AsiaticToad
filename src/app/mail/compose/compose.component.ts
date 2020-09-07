@@ -10,6 +10,16 @@ import { StorageService } from '../service/storage.service';
 import { MatDialogRef } from '@angular/material';
 import { FileUpload } from '../model/fileupload.model';
 
+interface DocumentDivisi {
+  value: string;
+  viewValue: string;
+}
+
+interface DocumentStatus {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-compose',
   templateUrl: './compose.component.html',
@@ -23,7 +33,7 @@ export class ComposeComponent implements OnInit, OnDestroy {
     { value: 'TEKNOLOGI', viewValue: 'TEKNOLOGI' }
   ];
 
-  statuss: DocumentDivisi[] = [
+  statuss: DocumentStatus[] = [
     { value: 'TO DO', viewValue: 'TO DO' },
     { value: 'ON PROGRESS', viewValue: 'ON PROGRESS' },
     { value: 'DONE', viewValue: 'DONE' }
@@ -53,7 +63,7 @@ export class ComposeComponent implements OnInit, OnDestroy {
       description: [null, Validators.required],
       subject: [null, Validators.required],
       divisi: [null, Validators.required],
-      // status: [ null, Validators.required ],
+      status: [null, Validators.required],
     });
 
     this.pictureForm
@@ -87,12 +97,20 @@ export class ComposeComponent implements OnInit, OnDestroy {
 
     this.uploadProgress$ = uploadProgress$;
 
-    // console.log('downloadUrl$ ---> ' + downloadUrl$);
-    // console.log('uploadProgress$ ---> ' + uploadProgress$);
-
-
-    this.submitted = false;
-    this.dialogRef.close(this.pictureForm.value);
+    downloadUrl$
+      .pipe(
+        takeUntil(this.destroy$),
+        catchError((error) => {
+          this.snackBar.open(`${error.message} 😢`, 'Close', {
+            duration: 4000,
+          });
+          return EMPTY;
+        }),
+      )
+      .subscribe((downloadUrl) => {
+        this.submitted = false;
+        this.dialogRef.close(this.pictureForm.value);
+      });
   }
 
   // postKitty() {
@@ -138,9 +156,4 @@ export class ComposeComponent implements OnInit, OnDestroy {
     return;
   }
 
-}
-
-interface DocumentDivisi {
-  value: string;
-  viewValue: string;
 }

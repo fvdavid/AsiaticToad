@@ -13,7 +13,7 @@ export class FileUplodSaved {
     description: string;
     subject: string;
     divisi: string;
-    status?: string;
+    status: string;
     when: Date;
     starred: boolean;
     read: boolean;

@@ -1,3 +1,21 @@
 .cross-validation-error input {
     border-left: 5px solid red;
 }
+
+.sub-title {
+    text-align: center;
+    display: block;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.mat-card-title {
+    font-size: 0.9em;
+}
+
+.preview-image {
+    width: 100%;
+    max-width: 45vw;
+    max-height: 250px;
+    object-fit: cover;
+}
