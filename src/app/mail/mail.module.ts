@@ -17,6 +17,10 @@ import { SearchComponent } from './search/search.component';
 import { ToolbarNotificationComponent } from './toolbar-notification/toolbar-notification.component';
 import { DocumentsService } from './service/documents.service';
 import { DatePipe } from '@angular/common';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DocumentListComponent } from './document-list/document-list.component';
+import { DocumentDetailComponent } from './document-detail/document-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { DatePipe } from '@angular/common';
     DetailComponent,
     ToolbarComponent,
     SearchComponent,
-    ToolbarNotificationComponent
+    ToolbarNotificationComponent,
+    DocumentListComponent,
+    DocumentDetailComponent
   ],
   imports: [
     HttpClientModule,
@@ -35,6 +41,8 @@ import { DatePipe } from '@angular/common';
     LayoutModule,
     BrandModule,
     QuillModule,
+    MaterialFileInputModule,
+    ReactiveFormsModule
   ],
   providers: [
     DocumentsService,

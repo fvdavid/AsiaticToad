@@ -1,0 +1,59 @@
+<div class="mail-detail" *ngIf="mail">
+  <div class="mail-subject">{{ mail.nameFile }}</div>
+
+  <div class="mail-header" fxLayout="row">
+    <!-- files -->
+    <!-- <img class="avatar" src="assets/images/avatars/noavatar.png" /> -->
+
+    <!-- <div class="mail-info" fxLayout="column">
+      <span class="from">{{ mail.from.name }}</span>
+      <span class="to">
+        Send To Me
+        <mat-icon>arrow_drop_down</mat-icon>
+      </span>
+    </div> -->
+    <!-- <span fxFlex></span> -->
+  </div>
+</div>
+
+<mat-grid-list cols="3">
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="colorOne">
+    <mat-list>
+      <mat-list-item class="text-inside-grid">
+        <div mat-line>Status: {{ mail.status }}</div>
+        <div mat-line>1.19 MiB, application/pdf</div>
+        <div mat-line>uploaded by: {{ mail.owner }}</div>
+        <div mat-line>uploaded date: {{ mail.created }} </div>
+        <div mat-line>
+          Komen: <span style="color: blueviolet;"> {{ mail.coment }} </span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="colorOne">
+    <mat-list-item class="button-inside-grid">
+      <div mat-line>
+        <button mat-stroked-button>
+          Download
+        </button>
+      </div>
+      <div mat-line>
+        <button mat-stroked-button>
+          View online
+        </button>
+      </div>
+      <div mat-line>
+        <button mat-stroked-button>
+          Change status
+        </button>
+      </div>
+      <div mat-line>
+        <button mat-stroked-button>
+          Edit koment
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-grid-tile>
+</mat-grid-list>

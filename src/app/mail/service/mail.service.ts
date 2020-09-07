@@ -28,7 +28,7 @@ export class MailService {
     // });
 
     this.firestore.collection('documentManagement').valueChanges().subscribe(res => {
-      console.log('res >> ' + JSON.stringify(res));
+      // console.log('res >> ' + JSON.stringify(res));
       this._mails.next(res);
     });
   }

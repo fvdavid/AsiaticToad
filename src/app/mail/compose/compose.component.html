@@ -1,44 +1,90 @@
 <div class="inbox-compose">
-  <div mat-dialog-content fxLayout="row" fxLayoutAlign="space-between center">
+  <!-- <div mat-dialog-content fxLayout="row" fxLayoutAlign="space-between center">
     <span>Write a Document</span>
     <button mat-dialog-close mat-icon-button>
       <mat-icon>close</mat-icon>
     </button>
-  </div>
+  </div> -->
 
-  <form #mailForm="ngForm">
-    <div fxLayout="column" mat-dialog-content>
-      <mat-form-field class="display-block">
-        <input matInput placeholder="subject" name="subject" [(ngModel)]="subject" required />
-      </mat-form-field>
+  <form [formGroup]="pictureForm" class="post-form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Tambahkan Dokumen</mat-card-title>
+      </mat-card-header>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Divisi</mat-label>
-        <mat-select [(ngModel)]="group" name="group">
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <img *ngIf="kittyImagePreview" [src]="kittyImagePreview" alt="Cute Kitty Picture" class="preview-image" />
 
-      <p class="editor">
-        <quill-editor name="content" [(ngModel)]="content"></quill-editor>
-      </p>
-    </div>
+      <mat-card-content>
 
-    <!-- <div fxFlex ></div> -->
-    <div mat-dialog-actions fxLayout="row">
-      <button mat-dialog-close mat-icon-button>
-        <mat-icon>delete</mat-icon>
-      </button>
-      <span fxFlex></span>
-      <!-- <button mat-icon-button>
-        <mat-icon>attachment</mat-icon>
-      </button> -->
-      <button class="send" mat-raised-button color="primary" [disabled]="!mailForm.valid" (click)="saveNewDocument()">
-        save
-        <mat-icon>save</mat-icon>
-      </button>
-    </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Subjek</mat-label>
+          <!-- <textarea formControlName="subject" matInput placeholder="Masukkan subjek dokumentasi">
+          </textarea> -->
+
+          <input matInput placeholder="subject" formControlName="subject" required />
+          <mat-error *ngIf="pictureForm.controls['subject'].hasError('required')">
+            Harap <strong>INPUT</strong> subject 😿
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Deskripsi Dokumen</mat-label>
+          <textarea formControlName="description" matInput placeholder="Deskripsi Harus Ada" required>
+          </textarea>
+          <mat-error *ngIf="pictureForm.controls['description'].hasError('required')">
+            Harap <strong>INPUT</strong> describe 😿
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Divisi</mat-label>
+          <!-- <textarea formControlName="divisi" matInput placeholder="Divisi">
+          </textarea>
+          <mat-error *ngIf="pictureForm.controls['divisi'].hasError('required')">
+            You <strong>SHOULD</strong> Divisi
+          </mat-error> -->
+
+          <mat-select formControlName="divisi" name="divisi">
+            <mat-option *ngFor="let d of divisis" [value]="d.value">
+              {{ d.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" name="status">
+            <mat-option *ngFor="let s of statuss" [value]="s.value">
+              {{ s.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Upload File</mat-label>
+          <ngx-mat-file-input formControlName="photo" placeholder="Basic outline placeholder">
+          </ngx-mat-file-input>
+
+          <mat-icon matSuffix>folder</mat-icon>
+          <mat-error *ngIf="pictureForm.controls['photo'].hasError('required')">
+            Silahkan isi Upload File
+          </mat-error>
+          <mat-error *ngIf="pictureForm.controls['photo'].hasError('image')">
+            Tidak Termaksud File
+          </mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-progress-bar *ngIf="submitted" [value]="uploadProgress$ | async" mode="determinate">
+      </mat-progress-bar>
+
+      <mat-card-actions>
+        <button (click)="submitDeskripsi()" [disabled]="pictureForm.invalid || submitted" color="primary" mat-raised-button>
+          Submit Dokumen
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </form>
+
 </div>

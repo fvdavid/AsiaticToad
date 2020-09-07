@@ -7,11 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BrandComponent implements OnInit {
 
-  @Input() brand = 'fvToad';
+  @Input() brand = 'PT. PHG';
   @Input() link: any = ['/mail'];
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

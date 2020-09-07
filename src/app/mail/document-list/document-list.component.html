@@ -1,0 +1,32 @@
+<div class="list">
+  <div class="table-container">
+    <table class="table-hover" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="nameFile">
+        <th mat-header-cell *matHeaderCellDef>nameFile</th>
+        <td mat-cell *matCellDef="let element">{{ element.subject }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>status</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- {{ element.status }} -->
+          ON PROGRESS
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>created</th>
+        <td mat-cell *matCellDef="let element">{{ element.when | date:'dd, MMMM, yyyy' }}</td>
+
+        <!-- <td mat-cell *matCellDef="let element">{{ element.created.toDate() | date:'dd, MMMM, yyyy' }}</td> -->
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="rowSelection(row)"></tr>
+    </table>
+  </div>
+
+  <div class="no-mails" fxLayout="column" fxLayoutAlign="start center" *ngIf="dataSource?.data.length === 0">
+    No Mail
+  </div>
+</div>
