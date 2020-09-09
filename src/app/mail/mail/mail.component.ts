@@ -67,7 +67,7 @@ export class MailComponent implements OnInit {
 
       console.log('result >> ' + result);
 
-      this.snackBar.open('Message has been closed', '', { duration: 3000 });
+      this.snackBar.open('Dokument baru batal di buat', '', { duration: 3000 });
     });
   }
 }

@@ -13,7 +13,6 @@ export const environment = {
     storageBucket: 'asiatic-toad.appspot.com',
     messagingSenderId: '176500710855',
   },
-
   mailApi: '/assets/data/mail/mailList.json'
 };
 

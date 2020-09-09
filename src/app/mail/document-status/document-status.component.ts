@@ -15,6 +15,7 @@ export class DocumentStatusComponent implements OnInit {
     { value: 'DONE', viewValue: 'DONE' }
   ];
 
+  submitted = false;
   pictureForm: FormGroup;
 
   constructor(
@@ -28,7 +29,10 @@ export class DocumentStatusComponent implements OnInit {
   }
 
   submitChangeStatus() {
+    this.submitted = true;
     this.dialogRef.close(this.pictureForm.value.status);
+
+    this.submitted = false;
   }
 
 }
